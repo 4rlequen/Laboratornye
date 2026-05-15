@@ -1,0 +1,81 @@
+ 
+====== dbt run started: 09.05.2026 15:36:53,69 ====== 
+12:36:55  Running with dbt=1.8.9
+12:36:55  Registered adapter: duckdb=1.8.4
+12:36:55  Found 4 models, 3 seeds, 14 data tests, 426 macros
+12:36:55  
+12:36:56  Concurrency: 4 threads (target='dev')
+12:36:56  
+12:36:56  1 of 3 START seed file main.raw_customers ...................................... [RUN]
+12:36:56  2 of 3 START seed file main.raw_orders ......................................... [RUN]
+12:36:56  3 of 3 START seed file main.raw_payments ....................................... [RUN]
+12:36:56  3 of 3 OK loaded seed file main.raw_payments ................................... [INSERT 40 in 0.11s]
+12:36:56  1 of 3 OK loaded seed file main.raw_customers .................................. [INSERT 15 in 0.11s]
+12:36:56  2 of 3 OK loaded seed file main.raw_orders ..................................... [INSERT 30 in 0.12s]
+12:36:56  
+12:36:56  Finished running 3 seeds in 0 hours 0 minutes and 0.31 seconds (0.31s).
+12:36:56  
+12:36:56  Completed successfully
+12:36:56  
+12:36:56  Done. PASS=3 WARN=0 ERROR=0 SKIP=0 TOTAL=3
+12:36:59  Running with dbt=1.8.9
+12:36:59  Registered adapter: duckdb=1.8.4
+12:36:59  Found 4 models, 3 seeds, 14 data tests, 426 macros
+12:36:59  
+12:37:00  Concurrency: 4 threads (target='dev')
+12:37:00  
+12:37:00  1 of 4 START sql view model main.stg_customers ................................. [RUN]
+12:37:00  2 of 4 START sql view model main.stg_orders .................................... [RUN]
+12:37:00  3 of 4 START sql view model main.stg_payments .................................. [RUN]
+12:37:00  1 of 4 OK created sql view model main.stg_customers ............................ [OK in 0.13s]
+12:37:00  3 of 4 OK created sql view model main.stg_payments ............................. [OK in 0.14s]
+12:37:00  2 of 4 OK created sql view model main.stg_orders ............................... [OK in 0.14s]
+12:37:00  4 of 4 START sql table model main.customers .................................... [RUN]
+12:37:00  4 of 4 OK created sql table model main.customers ............................... [OK in 0.07s]
+12:37:00  
+12:37:00  Finished running 3 view models, 1 table model in 0 hours 0 minutes and 0.41 seconds (0.41s).
+12:37:00  
+12:37:00  Completed successfully
+12:37:00  
+12:37:00  Done. PASS=4 WARN=0 ERROR=0 SKIP=0 TOTAL=4
+12:37:03  Running with dbt=1.8.9
+12:37:03  Registered adapter: duckdb=1.8.4
+12:37:03  Found 4 models, 3 seeds, 14 data tests, 426 macros
+12:37:03  
+12:37:04  Concurrency: 4 threads (target='dev')
+12:37:04  
+12:37:04  1 of 14 START test accepted_values_stg_orders_status__placed__shipped__completed__return_pending__returned  [RUN]
+12:37:04  2 of 14 START test accepted_values_stg_payments_payment_method__credit_card__coupon__bank_transfer__gift_card  [RUN]
+12:37:04  3 of 14 START test not_null_customers_customer_id .............................. [RUN]
+12:37:04  4 of 14 START test not_null_stg_customers_customer_id .......................... [RUN]
+12:37:04  3 of 14 PASS not_null_customers_customer_id .................................... [PASS in 0.09s]
+12:37:04  4 of 14 PASS not_null_stg_customers_customer_id ................................ [PASS in 0.09s]
+12:37:04  2 of 14 PASS accepted_values_stg_payments_payment_method__credit_card__coupon__bank_transfer__gift_card  [PASS in 0.09s]
+12:37:04  1 of 14 PASS accepted_values_stg_orders_status__placed__shipped__completed__return_pending__returned  [PASS in 0.09s]
+12:37:04  5 of 14 START test not_null_stg_orders_customer_id ............................. [RUN]
+12:37:04  6 of 14 START test not_null_stg_orders_order_id ................................ [RUN]
+12:37:04  7 of 14 START test not_null_stg_payments_order_id .............................. [RUN]
+12:37:04  8 of 14 START test not_null_stg_payments_payment_id ............................ [RUN]
+12:37:04  5 of 14 PASS not_null_stg_orders_customer_id ................................... [PASS in 0.06s]
+12:37:04  6 of 14 PASS not_null_stg_orders_order_id ...................................... [PASS in 0.06s]
+12:37:04  8 of 14 PASS not_null_stg_payments_payment_id .................................. [PASS in 0.05s]
+12:37:04  7 of 14 PASS not_null_stg_payments_order_id .................................... [PASS in 0.06s]
+12:37:04  9 of 14 START test relationships_stg_orders_customer_id__customer_id__ref_stg_customers_  [RUN]
+12:37:04  10 of 14 START test relationships_stg_payments_order_id__order_id__ref_stg_orders_  [RUN]
+12:37:04  11 of 14 START test unique_customers_customer_id ............................... [RUN]
+12:37:04  12 of 14 START test unique_stg_customers_customer_id ........................... [RUN]
+12:37:04  11 of 14 PASS unique_customers_customer_id ..................................... [PASS in 0.06s]
+12:37:04  12 of 14 PASS unique_stg_customers_customer_id ................................. [PASS in 0.05s]
+12:37:04  9 of 14 PASS relationships_stg_orders_customer_id__customer_id__ref_stg_customers_  [PASS in 0.06s]
+12:37:04  13 of 14 START test unique_stg_orders_order_id ................................. [RUN]
+12:37:04  10 of 14 PASS relationships_stg_payments_order_id__order_id__ref_stg_orders_ ... [PASS in 0.07s]
+12:37:04  14 of 14 START test unique_stg_payments_payment_id ............................. [RUN]
+12:37:04  14 of 14 PASS unique_stg_payments_payment_id ................................... [PASS in 0.03s]
+12:37:04  13 of 14 PASS unique_stg_orders_order_id ....................................... [PASS in 0.04s]
+12:37:04  
+12:37:04  Finished running 14 data tests in 0 hours 0 minutes and 0.40 seconds (0.40s).
+12:37:04  
+12:37:04  Completed successfully
+12:37:04  
+12:37:04  Done. PASS=14 WARN=0 ERROR=0 SKIP=0 TOTAL=14
+====== dbt run finished: 09.05.2026 15:37:06,02 ====== 
